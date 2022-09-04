@@ -22,5 +22,5 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     # path('women/', index), # http://127.0.0.1:8000/women/
     # path('cats/', categories), # http://127.0.0.1:8000/categories/
-    path('women/', include('women.urls'))
+    path('', include('women.urls'))
 ]
