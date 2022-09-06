@@ -17,10 +17,11 @@ from django.contrib import admin
 from django.urls import path, include
 
 # from women.views import index, categories
+from women.views import pageNotFaund
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    # path('women/', index), # http://127.0.0.1:8000/women/
-    # path('cats/', categories), # http://127.0.0.1:8000/categories/
     path('', include('women.urls'))
 ]
+
+handler404 = pageNotFaund
