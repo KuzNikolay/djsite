@@ -12,11 +12,9 @@ menu = [{'title': "О сайте", 'url_name': 'about'},
 
 def index(request):
     posts = Women.objects.all()
-    cats = Category.objects.all()
 
     context_index = {
         'posts': posts,
-        'cats': cats,
         'menu': menu,
         'title': 'Главная страница',
         'cat_selected': 0,
@@ -43,16 +41,14 @@ def pageNotFaund(request, exception):
 
 def show_category(request, cat_id):
     posts = Women.objects.filter(cat_id=cat_id)
-    cats = Category.objects.all()
 
     if len(posts) == 0:
         raise Http404()
 
     context_index = {
         'posts': posts,
-        'cats': cats,
         'menu': menu,
-        'title': f'Категория: {cats[cat_id-1]}',
+        'title': f'Категория: {cat_id}',
         'cat_selected': cat_id,
     }
     return render(request, 'women/index.html', context=context_index)
